@@ -60,6 +60,11 @@
     NSLog(@"%@",NSStringFromCGRect(bview.contentView.frame));
     
     [self.view addSubview:bview];
+    
+    bview.arrowHeight = 6;
+    bview.arrowLineRatio = 0.66;
+    [bview displayMask];
+    
     //
     
     pt.y += 110;

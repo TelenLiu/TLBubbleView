@@ -14,6 +14,9 @@ typedef struct
 }TLBubblePod;
 
 @implementation TLBubbleView
+{
+    CAShapeLayer *borderLayer;
+}
 @synthesize radius;
 
 //CGPathAddArc函数是通过圆心和半径定义一个圆，然后通过两个弧度确定一个弧线。注意弧度是以当前坐标环境的X轴开始的。
@@ -99,7 +102,10 @@ typedef struct
     self.layer.mask = shapeLayer;//layer的mask，顾名思义，是种位掩蔽，在shapeLayer的填充区域中，alpha值不为零的部分，self会被绘制；alpha值为零的部分，self不会被绘制
     //-----------------
     //
-    CAShapeLayer *borderLayer=[CAShapeLayer layer];
+    if (borderLayer) {
+        [borderLayer removeFromSuperlayer],borderLayer = nil;
+    }
+    borderLayer=[CAShapeLayer layer];
     borderLayer.path    =   path_b;
     borderLayer.fillColor  = [UIColor clearColor].CGColor;
     borderLayer.strokeColor    = _borderColor.CGColor;
