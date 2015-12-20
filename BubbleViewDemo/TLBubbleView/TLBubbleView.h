@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,assign)CGFloat arrowAngle;//箭头角度
 @property(nonatomic,assign)CGFloat radius;//圆角大小
 @property(nonatomic,assign)CGFloat borderWidth;//线宽
-@property(nonatomic,assign)UIColor* borderColor;//颜色
+@property(nonatomic,strong)UIColor* borderColor;//颜色
 @property(nonatomic,assign)CGPoint pt_Arrow; //箭头的顶点位置 与 ceneter自动换算
 
 //获得实例
